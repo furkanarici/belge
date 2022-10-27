@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- import css file -->
+    <style>
+      /* body text size 10px */
+      body {
+        font-size: 10px;
+      }
+      /* li margin top 2 px */
+      li {
+        margin-top: 10px;
+      }
+      /* table, td,tr border */
+      table,
+      td,
+      tr {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <p style="text-align: center">
+      {{this.firma.unvan}}’nin {{this.tarih}} TARİHİNDE YAPILAN
+    </p>
+    <p style="text-align: center">
+GENEL KURUL TOPLANTISINDA HAZIR BULUNANLAR LİSTESİ
+    </p>
+    <!-- table wity 11 column -->
+    <table style="width: 100%">
+      <tr>
+        <th>Pay Sahibinin Adı Soyadı/ Ünvanı</th>
+        <th>TC/VKN</th>
+        <th>Uyguğu</th>
+        <th>Adresi</th>
+        <th>Payların Toplam İtibari Değeri</th>
+        <th>Payların Edinim Şekli Ve Tarihi*</th>
+        <th>Katılım Şekli**</th>
+        <th>Temsilci Türü***</th>
+        <th>Temsilcinin AdSoyad/Ünvanı</th>
+        <th>Temsilcinin TC/VKN</th>
+        <th>İmza</th>
+      </tr>
+
+      {{#each genelKurulUyeler}}
+      <tr>
+        <td>{{this.adSoyad}}</td>
+        <td>{{this.tc}}</td>
+        <td>{{this.uyruk}}</td>
+        <td>{{this.aders}}</td>
+        <td>
+          <p>{{this.payToplamDeger}}</p>
+      
+        </td>
+
+        <td>    
+          <p> {{this.payEdinmeSekli}}</p>
+          <p> {{this.payEdinmeTarihi}}</p></td>
+        <td>asaleten</td>
+        <td></td>
+        <td></td>
+               
+        <td></td>
+        <td></td>
+      </tr>
+      {{/each}}
+    </table>
+
+    <p>ŞİRKETİN SERMAYESİ VE PAYLARIN TOPLAM İTİBARİ DEĞERİ: {{this.firma.sermaye}}</p>
+    <p>ASGARİ TOPLANTI NİSABI:</p>
+    <p>MEVCUT TOPLANTI NİSABI:</p>
+
+    <br />
+
+    <!-- table with 3 col -->
+    <table style="width: 100%">
+      <tr>
+        <th></th>
+        <th>Toplanıt başkanı</th>
+        <th>Yönetim Kurulu Başkanı/Üyesi</th>
+      </tr>
+      <tr>
+        <td style="text-align: center; width:500px "> <br> <br> <br> <br></td>
+        <td style="text-align: center; width:500px">{{this.firma.yetkili}} <br> <br> <br> <br></td>
+        <td style="text-align: center; width:500px">{{this.firma.yetkili}} <br> <br> <br> <br></td>
+      </tr>
+    </table>
+
+    <p>(*) Payların edinim şekli ve tarihi olarak; eğer pay menkul kıymet borsası aracılığıyla edinilmişse “borsa içi”, borsa dışından edinilmişse “borsa dışı” ibaresi ile birlikte </p>
+    <p>(**) Katılım şekli olarak; pay sahibinin bizzat kendisi katılması durumunda “asaleten”, pay sahibini temsilen bir başkasının katılması durumunda ise “temsilen” </p>
+    <p>(***) Temsilci türü olarak; temsil şekline göre “tevdi eden temsilcisi” veya “vekaleten” ifadelerinden biri yazılacaktır.</p>
+
+      <br>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- import css file -->
+    <style>
+      /* body text size 10px */
+      body {
+        font-size: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- h1 text right -->
+
+    <br />
+    <p style="text-align: right">{{this.tarih}}</p>
+    <br />
+    <br />
+    <br />
+    <h1>İSTANBUL TİCARET SİCİLİ MÜDÜRLÜĞÜNE</h1>
+    <br />
+    <br />
+    <br />
+    <p>
+      Müdürlüğünüz nezdinde <strong>{{this.firma.sicilNo}}</strong> ticaret
+      sicil numarası ile kayıtlı bulunan
+      <strong>{{this.firma.unvan}}</strong> unvanlı şirketimizin ekli
+      evraklarının incelenerek tescil ve ilan edilmesi hususunda gereğini arz
+      ederim/ederiz.
+    </p>
+    <br />
+    <br />
+
+    <p style="text-align: right">Şirket Unvanı / Kaşesi</p>
+    <p style="text-align: right">
+      <strong>{{this.firma.unvan}}</strong>
+    </p>
+    <p style="text-align: right">Yetkili Adı - Soyadı</p>
+
+    <p style="text-align: right">
+      <strong>{{this.firma.yetkili}}</strong>
+    </p>
+    <p style="text-align: right">İmza</p>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <p>
+      MERSİS Başvuru Talep Numarası :
+      <strong>{{this.firma.mersisTalepNo}}</strong>
+    </p>
+    <p>
+      Şirketin Kayıtlı Olduğu Vergi Dairesi :
+      <strong>{{this.firma.vergiDairesi}}</strong>
+    </p>
+    <p>Şirketin Vergi Numarası :<strong>{{this.firma.vergiNo}}</strong></p>
+    <p>Cep Telefonu Numarası :<strong>{{this.firma.yetkiliGSM}}</strong></p>
+    <p>Ekler :</p>
+  </body>
+</html>

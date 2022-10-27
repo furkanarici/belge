@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- import css file -->
+    <style>
+      /* body text size 10px */
+      body {
+        font-size: 10px;
+      }
+      /* li margin top 2 px */
+      li {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <br />
+
+    <br />
+
+    <h3 style="text-align: center">
+      {{this.firma.unvan}}’NİN YÖNETİM KURULU KARARI
+    </h3>
+    <br />
+    <br />
+    <br />
+    <br />
+    <p>Karar Tarihi:{{this.tarih}}</p>
+    <p>Karar No:{{this.yonetimKuruluKararNo}}</p>
+    <p>
+      Toplantıya Katılanlar: {{#each yonetimKuruluUyeler}}
+      <span>{{this.tc}} {{this.adSoyad}}, </span>{{/each}}
+    </p>
+
+    <br /><br />
+    <p>Yönetim kurulu kendi arasında yaptığı toplantıda,</p>
+
+    <br />
+
+    <ol>
+      <li>
+        {{this.tarih}} tarihli genel kurul toplantısında yönetim kurulu üyesi
+        olarak seçilenler kendi aralarında yaptıkları görev taksimi sonucunda 3
+        yıl süre ile
+
+        <ol type="a">
+          {{#each yeniYonetimKurulu}}
+          <li>
+            <strong>{{this.gorev}}</strong> görevine {{this.aders}} ikamet eden
+            {{this.tc}} TC Kimlik Numaralı <strong>{{this.adSoyad}}</strong> ’ın
+            seçilmesine, {{#ifCond this.temsil '===' "Münferit"}}
+            <span>
+              <strong>münferiden</strong> atacağı imzalar ile şirketi temsil ve
+              ilzam etmesine.
+            </span>
+            {{/ifCond}}
+          </li>
+
+          {{/each}}
+        </ol>
+        <br />
+        oy birliğiyle karar verilmiştir.
+      </li>
+      <li>İş bu kararın ticaret sicilinde tescil ve ilan edilmesine.</li>
+    </ol>
+    <br />
+    <br />
+    <p>
+     {{#each yonetimKuruluUyeler}}
+      <p>{{this.tc}} {{this.adSoyad}}</p>
+      {{/each}}
+      <br>
+      <br>
+      <br>
+    </p>
+  </body>
+</html>

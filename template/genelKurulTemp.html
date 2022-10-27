@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- import css file -->
+    <style>
+      /* body text size 10px */
+      body {
+        font-size: 10px;
+      }
+      /* li margin top 2 px */
+      li {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <br />
+
+    <br />
+
+    <h3 style="text-align: center">
+      {{this.firma.unvan}}’NİN {{this.tarih}} TARİHİNDE YAPILAN OLAĞAN GENEL
+      KURUL TOPLANTI TUTANAĞI
+    </h3>
+    <br />
+    <p>
+      {{this.firma.unvan}}’nin OLAĞAN Genel Kurul Toplantısı {{this.tarih}}
+      tarihinde, saat 11:30 da, {{this.firma.adres}} adresinde yapılmıştır.
+    </p>
+    <br />
+    <p>
+      Toplantı T.T.K. 416. maddesine uygun olarak ilansız yapılmakta olup, hazır
+      bulunanlar listesinin tetkikinden şirketin toplam {{this.firma.sermaye}}
+      sermayesine tekabül eden, {{this.firma.sermayePay}} adet payın asaleten
+      toplantıda hazır bulunduğunun ve böylece gerek Kanun gerekse esas
+      sözleşmede öngörülen asgari toplantı nisabının mevcut olduğunun
+      anlaşılması üzerine toplantı {{this.firma.yetkili}} tarafından açılarak
+      gündemin görüşülmesine geçilmiştir.
+    </p>
+    <br />
+    <br />
+    <ol>
+      <li>
+        Toplantı başkanlığına {{this.firma.yetkili}}’ın seçilmesine oybirliğiyle
+        karar verildi.
+      </li>
+      <li>
+        Yönetim kurulunun {{#each yillar}} <span>{{this}}</span>{{/each}}
+        yıllarına ait yıllık faaliyet raporu okundu ve oy birliği ile kabul
+        edildi.
+      </li>
+      <li>
+        {{#each yillar}}<span>{{this}} </span>{{/each}} yıllarına ait Bilânço ve
+        kâr/zarar hesapları okundu ve müzakere edildi. Yapılan oylama sonucunda,
+        bilânço ve kâr/zarar hesapları oybirliğiyle tasdik edildi.
+      </li>
+      <li>
+        Yapılan oylama sonucunda yönetim kurulu üyeleri {{#each yillar}}<span
+          >{{this}} </span
+        >{{/each}} yıllarındaki çalışmalarından dolayı oybirliğiyle ibra
+        edildiler.
+      </li>
+      {{#ifCond this.yonetimKuruluSecimi '===' true}}
+      <li>
+        Yönetim kurulu üyeliğine 3 yıl süreyle görev yapmak üzere;
+        <!--  ol a.b.c -->
+        <ol type="a">
+          {{#each yeniYonetimKurulu}}
+          <li>
+            Türkiye Uyruklu {{this.tc}} Kimlik No'lu , {{this.aders}} adresinde
+            ikamet eden, {{this.adSoyad}}'nın seçilmesine oy birliği ile karar
+            verildi.
+          </li>
+          <br />
+          {{/each}}
+        </ol>
+      </li>
+      {{/ifCond}} {{#ifCond this.icYonerge '===' true}}
+      <!-- diğer kararlar -->
+      {{#ifCond this.digerKararlar.length '!==' "0"}} {{#each digerKararlar}}
+      <li>{{this}}</li>
+      {{/each}} {{/ifCond}}
+      <!-- diğer kararlar sonu -->
+
+      <!-- Huzur Hakkı  -->
+      {{#ifCond this.huzurHakki '!==' "0"}}
+      <li>
+        Şirket yönetim kurulu üyelerine huzur hakkı olarak Net {{this.huzurHakki}}
+        tutarında aylık ödeme yapılmasına. İlgili tutara şirket satış
+        performansına göre pirim eklenmesine.
+      </li>
+      {{/ifCond}}
+      <!-- Huzur Hakkı  sonu -->
+      <li>
+        Yönetim Kurulu tarafından hazırlanan {{this.firma.unvan}} Genel
+        Kurulunun Çalışma Esas ve Usulleri Hakkında “İç Yönerge” müzakere
+        edildi. Hazırlanan yönergenin kabulüne oy birliği ile karar verildi.
+      </li>
+      {{/ifCond}}
+      <li>
+        Gündemde görüşülecek başka bir madde bulunmadığından Toplantı Başkanınca
+        toplantıya son verildi.
+      </li>
+    </ol>
+    <br />
+    <br />
+    <p>{{this.firma.yetkili}}</p>
+  </body>
+</html>
