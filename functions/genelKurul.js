@@ -79,7 +79,7 @@ data.genelKurulUyeler = [
 ]
 
 // huzur hakkı yoksa "0" yap
-data.huzurHakki = "5.500,00 TL"
+data.huzurHakki = "5.500,00 TL "
 
 data.digerKararlar = []
 data.icYonerge = true
