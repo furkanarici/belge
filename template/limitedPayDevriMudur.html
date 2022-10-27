@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- import css file -->
+    <style>
+      /* body text size 10px */
+      body {
+        font-size: 10px;
+      }
+      /* li margin top 2 px */
+      li {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+ 
+    <h3 style="text-align: center">
+      {{this.firma.unvan}}
+    </h3>
+    
+    <br />
+    <br />
+    <br />
+    <br />
+    <p>Karar Tarihi:{{this.tarih}}</p>
+    <p>Karar No:{{this.kararNo}}</p>
+    <p>
+      Toplantıya Katılanlar: {{#each toplantiyaKatilanlar}}
+      <span>{{this.tc}} {{this.adSoyad}}, </span>{{/each}}
+    </p>
+
+    <br /><br />
+
+
+    <p>Şirket ortakları şirket merkezinde toplanarak aşağıdaki hususu karar altına almışlardır.</p>
+
+    <br />
+
+    <ol>
+      {{#ifCond this.devir.length '!==' 0}}
+      {{#each devir}}
+      <li>
+       
+      <p>
+        Şirket pay sahiplerinden {{this.devredenAdSoyad}} şirkette mevcut {{this.payTutar}}  TL tutarındaki payını {{this.noter}}  Noterliğinden {{this.tarih}} tarih ve {{this.sayi}}  sayılı ile tasdikli pay devir ve temlik sözleşmesi ile şirket {{this.sirketDisindan}}  {{this.devralanAdres}}  adresinde ikamet eden T.C. uyruklu, {{this.devralanTC}} T.C. kimlik numaralı  {{this.devralanAdSoyad}}’ na 
+        {{#ifCond this.ortakliktanAyrildi '===' true}}
+        devrederek ortaklıktan ayrılmıştır
+        {{/ifCond}}
+        {{#ifCond this.ortakliktanAyrildi '===' false}}
+        devretmiştir
+        {{/ifCond}}
+      </p>
+      {{#ifCond this.mudurluktenIstifa '===' true}}
+        <p>
+          Ayrılan şirket ortağı {{this.devredenAdSoyad}}'nin' müdürlük görevi de sona ermiştir. 
+        </p>
+      {{/ifCond}}
+
+      </li>
+      {{/each}}
+
+      {{/ifCond}}
+      <li>
+        <p>Yukarıda bahsi geçen pay devrinin kabulüne ve devir hususunun şirket pay defterine işlenmesine karar verilmiş olup;</p>
+        <p>Pay devri sonucunda şirket ortakları, sermaye payları ile pay tutarları aşağıda belirtildiği şekildedir: </p>
+
+        <ol type="a">
+          {{#each sonOrtaklik}}
+          <li>{{this.tutar}}  Türk Lirası {{this.adSoyad}} {{this.tc}}’na </li>
+          {{/each}}
+        aittir.
+        </ol>
+
+      </li>
+
+      {{#ifCond this.mudurIstifa.length '!==' 0}}
+      {{#each mudurIstifa}}
+      <li>
+        Şirket müdürlerimizden {{this.tc}} T.C. kimlik numaralı {{this.adSoyad}} müdürlük görevinden istifa etmiş olup; 
+        istifasının kabulüne, müdürlük görevi sona erdiğinden şirketi temsil yetkisinin de sona erdirilmesine karar verilmiştir. 
+      </li>
+      {{/each}}
+      {{/ifCond}}
+
+
+
+      {{#ifCond this.mudurAtama.length '!==' 0}}
+      {{#each mudurAtama}}
+      <li>
+      Şirket müdürlüğüne süresiz olarak {{this.adres}} adresinde ikamet eden T.C. uyruklu {{this.tc}} kimlik numaralı {{this.adSoyad}} atanmıştır.
+      <p>
+        şirketi her hususta {{this.yetkiTuru}} imzası  ile temsil etmek üzere yetki verilmiştir.
+      </p>
+    </li>
+    {{/each}}
+    {{/ifCond}}
+
+   
+
+
+
+
+      <li>İş bu kararın ticaret sicilinde tescil ve ilan edilmesine.</li>
+    </ol>
+    <br />
+    <br />
+    <p>
+     {{#each toplantiyaKatilanlar}}
+      <p>{{this.tc}} {{this.adSoyad}}</p>
+      {{/each}}
+      <br>
+      <br>
+      <br>
+    </p>
+  </body>
+</html>

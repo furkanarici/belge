@@ -44,9 +44,15 @@ KÜÇÜKBAKKALKÖY MAH. ALİ AY SK. NO: 19 İÇ KAPI NO: 3 ATAŞEHİR / İSTANBU
 25919-75380-43749`
 
 data.firma = mersisAyristir(mersis)
+
+let kararTuru = "Ortaklar Kurulu Kararı"
+if (data.firma.unvan.toLocaleLowerCase("tr").includes("anonim")) kararTuru = "Yönetim Kurulu Kararı"
+data.kararTuru = kararTuru
+
 data.firma.mersisTalepNo = "5845393"
 data.firma.yetkili = "Fırat Berkan Bağcı"
 data.firma.yetkiliGSM = "‭+90 (535) 446 14 14"
+
 data.firma.sermaye = "50000,00 TL"
 data.firma.sermayePay = "50"
 data.toplantiBaskani = data.firma.yetkili
@@ -79,9 +85,10 @@ data.genelKurulUyeler = [
 ]
 
 // huzur hakkı yoksa "0" yap
-data.huzurHakki = "5.500,00 TL "
+data.huzurHakki = "5.500,00 TL"
 
 data.digerKararlar = []
+
 data.icYonerge = true
 
 

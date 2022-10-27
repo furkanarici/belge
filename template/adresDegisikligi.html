@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- import css file -->
+    <style>
+      /* body text size 10px */
+      body {
+        font-size: 10px;
+      }
+      /* li margin top 2 px */
+      li {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+ 
+    <h3 style="text-align: center">
+      {{this.firma.unvan}}
+    </h3>
+    
+    <br />
+    <br />
+    <br />
+    <br />
+    <p>Karar Tarihi:{{this.tarih}}</p>
+    <p>Karar No:{{this.kararNo}}</p>
+    <p>
+      Toplantıya Katılanlar: {{#each toplantiyaKatilanlar}}
+      <span>{{this.tc}} {{this.adSoyad}}, </span>{{/each}}
+    </p>
+
+    <br /><br />
+    {{#ifCond this.kararTuru '===' "Yönetim Kurulu Kararı"}}
+    <p>Yönetim kurulu kendi arasında yaptığı toplantıda,</p>
+    {{/ifCond}}
+
+    {{#ifCond this.kararTuru '===' "Ortaklar Kurulu Kararı"}}
+    <p>Şirket ortakları şirket merkezinde toplanarak aşağıdaki hususu karar altına almışlardır.</p>
+    {{/ifCond}}
+    <br />
+
+    <ol>
+      <li>
+        <p>Şirket merkez adresi {{this.firma.adres}} adresinden, </p>
+        <p><strong>{{this.yeniAdres}}</strong> adresine taşınmıştır.</p>
+      </li>
+      <li>İş bu kararın ticaret sicilinde tescil ve ilan edilmesine.</li>
+    </ol>
+    <br />
+    <br />
+    <p>
+     {{#each toplantiyaKatilanlar}}
+      <p>{{this.tc}} {{this.adSoyad}}</p>
+      {{/each}}
+      <br>
+      <br>
+      <br>
+    </p>
+  </body>
+</html>

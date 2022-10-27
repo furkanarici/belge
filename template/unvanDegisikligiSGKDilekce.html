@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- import css file -->
+    <style>
+      /* body text size 10px */
+      body {
+        font-size: 10px;
+      }
+      /* li margin top 2 px */
+      li {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+ 
+    <h3 style="text-align: center">
+      {{this.firma.unvan}}
+    </h3>
+
+    <h3 style="text-align: center">
+      {{this.sgkMudurluk}} Sosyal Güvenlik Merkezine
+    </h3>
+    
+    <br />
+    <br />
+    <br />
+    <br />
+    <p>Konu: Ünvan Değişikliği</p>
+  
+    <p>Müdürlüğünüze {{this.sgkSicilNo}} sicil numarası ile kayıtlıyız.</p>
+
+   <br>
+        <p>{{this.tarih}} tarihi itibariyle,</p>
+        <p>Şirketimizin unvanı <strong>{{this.yeniUnvan}}</strong> olarak değiştirilmiştir.</p>
+
+    <br>
+    <br>
+        <p>Gerekli işlemlerin yapılmasını talep ederiz.</p>
+    <br />
+    <br />
+    <p>
+
+      <p>{{this.firma.yetkili}} </p>
+      <p>Kaşe İmza</p>
+
+      <br>
+      <br>
+      <br>
+      <br>
+
+    <ul>
+      <li>İmza Sirküleri</li>
+      <li>Vergi Levhası</li>
+      <li>Vekaletname</li>
+    </ul>
+    </p>
+  </body>
+</html>
